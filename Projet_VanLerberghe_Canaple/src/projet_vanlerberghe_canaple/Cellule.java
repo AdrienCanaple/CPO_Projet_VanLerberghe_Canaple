@@ -29,6 +29,5 @@ public class Cellule {
         presenceBombe=true;
         return presenceBombe;    
     }
-    //permet de mettre à jour l'age de la personne
-    // param ... : met à jour l'age 
+     
 }
