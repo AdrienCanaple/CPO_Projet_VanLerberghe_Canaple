@@ -25,5 +25,10 @@ public class Cellule {
         return NbBombesAdjacentes;
     }
     
-    int a=0;
+    public boolean placerBombe(boolean presenceBombe){
+        presenceBombe=true;
+        return presenceBombe;    
+    }
+    //permet de mettre à jour l'age de la personne
+    // param ... : met à jour l'age 
 }
