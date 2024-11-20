@@ -25,5 +25,5 @@ public class Cellule {
         return NbBombesAdjacentes;
     }
     
-    
+    int a=0;
 }
