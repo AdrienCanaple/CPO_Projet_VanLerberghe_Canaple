@@ -1,8 +1,8 @@
 package projet_vanlerberghe_canaple;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/*mini-projet démineur 
+ * 20/11/2024
+ * Adrien CANAPLE Louison Van Lerberghe
  */
 
 /**
@@ -22,7 +22,17 @@ public class GrilleDeJeu {
         return nbColonnes;
     }
 
+    /**
+     * a quoi ca correspond
+     * @return une valeur entiere correpsondant a l'age
+     */
     public int getNbBombes() {
         return nbBombes;
+    }
+    public void placerBombe(){
+        //mettre les coordonnées de la cellule et booléen avec oui ou non bombe
+    }
+    public void placerBombeAleatoirement(){
+        // 
     }
 }
