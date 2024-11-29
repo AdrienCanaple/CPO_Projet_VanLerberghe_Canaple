@@ -6,6 +6,8 @@
  */
 package projet_vanlerberghe_canaple;
 
+
+
 /**
  *
  * @author louison_vl
@@ -25,9 +27,32 @@ public class Cellule {
         return NbBombesAdjacentes;
     }
     
-    public boolean placerBombe(boolean presenceBombe){
-        presenceBombe=true;
-        return presenceBombe;    
+    public void placerBombe(){
+        presenceBombe=true;    
+    }
+    
+    public void revelerCellule(){
+        devoilee=true;
+    }
+
+    public void setNbBombesAdjacentes(int NbBombesAdjacentes) {
+        this.NbBombesAdjacentes = NbBombesAdjacentes;
     }
      
+
+    @Override
+    public String toString() {
+        String affichage = "";
+        if (devoilee==false){
+            affichage = "?";
+        } else if (presenceBombe==true && devoilee==true) {
+            affichage =  "B";
+        } else if (NbBombesAdjacentes>0 && presenceBombe==false && devoilee==true){
+            affichage =  NbBombesAdjacentes+"";
+        } else if (devoilee==true && presenceBombe==false && NbBombesAdjacentes==0) {
+            affichage =  " ";
+        }
+        return affichage;
+    }
+    
 }

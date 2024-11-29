@@ -14,7 +14,15 @@ public class Projet_VanLerberghe_Canaple {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Cellule une = new Cellule ();
+        une.placerBombe();
+        System.out.println(une.getPresenceBombe());
+        
+        System.out.println(une);
+        
+        une.revelerCellule();
+        
+        System.out.println(une);
     }
     
 }
