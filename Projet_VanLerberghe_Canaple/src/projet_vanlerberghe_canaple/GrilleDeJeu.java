@@ -24,10 +24,6 @@ public class GrilleDeJeu {
         return nbColonnes;
     }
 
-    /**
-     * a quoi ca correspond
-     * @return une valeur entiere correpsondant a l'age
-     */
     public int getNbBombes() {
         return nbBombes;
     }
@@ -75,5 +71,69 @@ public class GrilleDeJeu {
         }
         
     }
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public boolean getPresenceBombe(int ligne, int colonne){
+        if(matriceCellules[ligne][colonne].getPresenceBombe()== true){
+            return true;
+        }
+        else{ 
+            return false;
+        }
+    }
+    public boolean toutesCellulesRevelees(){
+        boolean result=true;
+   
+        for (int x = 0;x<10;x++){
+            for (int y = 0;y<10;y++){
+        if (matriceCellules[x][y].isDevoilee == false){
+            result=false;
+        }
+        return result;    }
+}
+}
 }
 
