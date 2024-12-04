@@ -101,6 +101,8 @@ public class GrilleDeJeu {
                
     }
 
+    //this.setText(jjj)
+    
 }
 
 
