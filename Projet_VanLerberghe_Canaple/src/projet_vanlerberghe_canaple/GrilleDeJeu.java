@@ -108,7 +108,7 @@ public class GrilleDeJeu {
         boolean result=true;
         for (int x = 0;x<10;x++){
             for (int y = 0;y<10;y++){
-        if (matriceCellules[x][y].isDevoilee() == false){
+        if (matriceCellules[x][y].isDevoilee() == false && matriceCellules[x][y].getPresenceBombe()==false){
             result=false;
         }
         return result;    
