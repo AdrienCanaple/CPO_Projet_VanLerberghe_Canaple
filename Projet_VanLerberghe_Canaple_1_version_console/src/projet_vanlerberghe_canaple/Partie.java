@@ -11,6 +11,10 @@ package projet_vanlerberghe_canaple;
 public class Partie {
     GrilleDeJeu grille;
     
+    public Partie(GrilleDeJeu grille) {
+        this.grille = grille;
+    }
+    
     public void initialiserPartie(){
         grille.placerBombeAleatoirement();
         grille.calculerBombesAdjacentes();

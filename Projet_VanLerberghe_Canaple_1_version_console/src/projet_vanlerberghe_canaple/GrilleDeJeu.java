@@ -15,6 +15,19 @@ public class GrilleDeJeu {
     private int nbLignes;
     private int nbColonnes;
     private int nbBombes;
+    
+    public GrilleDeJeu(int nbLignes, int nbColonnes, int nbBombes) {
+        this.nbLignes = nbLignes;
+        this.nbColonnes = nbColonnes;
+        this.nbBombes = nbBombes;
+        this.matriceCellules = new Cellule [nbLignes][nbColonnes];
+        
+        for (int x=0; x<10; x++){
+            for (int y=0; y<10; y++) {
+                matriceCellules[x][y]= new Cellule();
+            }
+        }
+    }
 
     public int getNbLignes() {
         return nbLignes;
