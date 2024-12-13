@@ -26,7 +26,8 @@ public class Projet_VanLerberghe_Canaple {
        
         GrilleDeJeu Grille1 = new GrilleDeJeu(10,10,11);
         Partie grille1 = new Partie(Grille1);
-        grille1.demarrerPartie();
+        
+        System.out.println(grille1.demarrerPartie());
     }
     
 }

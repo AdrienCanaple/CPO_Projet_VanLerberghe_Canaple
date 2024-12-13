@@ -33,10 +33,11 @@ public class Partie {
             return false;
         }
     }
-    public void demarrerPartie (){
+    public GrilleDeJeu demarrerPartie (){
         this.initialiserPartie();
-        this.tourDeJeu(10,10);
+        this.tourDeJeu(9,9);
         this.verifierVictoire();
+        return grille;
         
     }
 }
