@@ -130,11 +130,11 @@ public class GrilleDeJeu {
         for (int x = 0;x<10;x++){
             for (int y = 0;y<10;y++){
         if (matriceCellules[x][y].isDevoilee()==false){
-            affichage = "?";
+            affichage = "? ";
         } else if (matriceCellules[x][y].getPresenceBombe()==true && matriceCellules[x][y].isDevoilee()==true) {
-            affichage =  "B";
+            affichage =  "B ";
         } else if (matriceCellules[x][y].getNbBombesAdjacentes()>0 && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].isDevoilee()==true){
-            affichage =  matriceCellules[x][y].getNbBombesAdjacentes()+"";
+            affichage =  matriceCellules[x][y].getNbBombesAdjacentes()+" ";
         } else if (matriceCellules[x][y].isDevoilee()==true && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].getNbBombesAdjacentes()==0) {
             affichage =  " ";
         }

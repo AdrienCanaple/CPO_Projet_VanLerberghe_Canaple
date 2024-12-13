@@ -34,7 +34,7 @@ public class Partie {
         }
     }
     public void demarrerPartie (){
-        this.tourDeJeu(10,10);
+        this.tourDeJeu(9,9);
         this.initialiserPartie();
         this.verifierVictoire();
         
