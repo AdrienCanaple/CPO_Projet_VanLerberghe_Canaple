@@ -23,6 +23,10 @@ public class Projet_VanLerberghe_Canaple {
         une.revelerCellule();
         
         System.out.println(une);
+       
+        GrilleDeJeu Grille1 = new GrilleDeJeu(10,10,11);
+        Partie grille1 = new Partie(Grille1);
+        grille1.demarrerPartie();
     }
     
 }

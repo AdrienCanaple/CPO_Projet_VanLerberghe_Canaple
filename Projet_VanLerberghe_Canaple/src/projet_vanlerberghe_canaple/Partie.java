@@ -10,6 +10,10 @@ package projet_vanlerberghe_canaple;
  */
 public class Partie {
     GrilleDeJeu grille;
+
+    public Partie(GrilleDeJeu grille) {
+        this.grille = grille;
+    }
     
     public void initialiserPartie(){
         grille.placerBombeAleatoirement();
@@ -30,8 +34,8 @@ public class Partie {
         }
     }
     public void demarrerPartie (){
-        this.tourDeJeu(10,10);
         this.initialiserPartie();
+        this.tourDeJeu(10,10);
         this.verifierVictoire();
         
     }
