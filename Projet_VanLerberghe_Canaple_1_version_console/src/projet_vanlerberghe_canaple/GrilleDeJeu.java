@@ -97,12 +97,7 @@ public class GrilleDeJeu {
                
     }
     public boolean getPresenceBombe(int ligne, int colonne){
-        if(matriceCellules[ligne][colonne].getPresenceBombe()== true){
-            return true;
-        }
-        else{ 
-            return false;
-        }
+        return matriceCellules[ligne][colonne].getPresenceBombe();
     }
     public boolean toutesCellulesRevelees(){
         boolean result=true;
@@ -111,11 +106,28 @@ public class GrilleDeJeu {
         if (matriceCellules[x][y].isDevoilee() == false){
             result=false;
         }
-        return result;    
             }
+        }
+        return result;    
+            
 }
+    @Override
+    public String toString() {
+        String affichage = "";
+        for (int x = 0;x<10;x++){
+            for (int y = 0;y<10;y++){
+        if (matriceCellules[x][y].isDevoilee()==false){
+            affichage = "?";
+        } else if (matriceCellules[x][y].getPresenceBombe()==true && matriceCellules[x][y].isDevoilee()==true) {
+            affichage =  "B";
+        } else if (matriceCellules[x][y].getNbBombesAdjacentes()>0 && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].isDevoilee()==true){
+            affichage =  matriceCellules[x][y].getNbBombesAdjacentes()+"";
+        } else if (matriceCellules[x][y].isDevoilee()==true && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].getNbBombesAdjacentes()==0) {
+            affichage =  " ";
+        }
+        
+    }
+        }
+        return affichage;
+    }
 }
-}
-
-
-
