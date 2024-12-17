@@ -60,10 +60,11 @@ public class GrilleDeJeu {
         for (int x = 0;x<nbLignes;x++){
             for (int y = 0;y<nbColonnes;y++){
                 int NbBombesAdjacentes = 0;
-                for (int a = -1;a<2;a++){
-                    for(int b= -1;b<2;b++ ){
-                        if (0<x && x<nbLignes-1 && 0<y && y<nbColonnes-1){
-                        if (matriceCellules[x+a][y+b].getPresenceBombe()== true){
+                if(matriceCellules[x][y].getPresenceBombe()==false){
+                for (int a = x-1;a<=x+1;a++){
+                    for(int b= y-1;b<=y+1;b++ ){
+                        if (0<=a && x<nbLignes-1 && 0<=b && y<nbColonnes-1){
+                        if (matriceCellules[a][b].getPresenceBombe()== true){
                         NbBombesAdjacentes++;
                     }
                     }
@@ -71,39 +72,28 @@ public class GrilleDeJeu {
                 }
                 matriceCellules[x][y].setNbBombesAdjacentes(NbBombesAdjacentes);
             }
+            }
         }
     }
     
     public void revelerCellule(int ligne, int colonne){
-        if (matriceCellules[ligne][colonne].getPresenceBombe()== true && matriceCellules[ligne][colonne].isDevoilee() == false){
+        if(matriceCellules[ligne][colonne].isDevoilee()){
+            return;
+        }
+       matriceCellules[ligne][colonne].revelerCellule();
+        if (matriceCellules[ligne][colonne].getPresenceBombe()== true){
             System.out.println("Fin de la partie!!");
-        } else {
-            matriceCellules[ligne][colonne].revelerCellule();
+        } else {           
             if (matriceCellules[ligne][colonne].getNbBombesAdjacentes()==0){
-                if (ligne-1>0 && colonne-1>0 && matriceCellules[ligne-1][colonne-1].isDevoilee()==false){
-                    matriceCellules[ligne-1][colonne-1].revelerCellule();
-                }
-                if (ligne-1>0 && colonne>0 && matriceCellules[ligne-1][colonne].isDevoilee()==false){
-                    matriceCellules[ligne-1][colonne].revelerCellule();
-                }
-                if (ligne-1>0 && colonne+1<9 && matriceCellules[ligne-1][colonne+1].isDevoilee()==false){
-                    matriceCellules[ligne-1][colonne+1].revelerCellule();
-                }   
-                if (ligne>0 && colonne-1>0 && matriceCellules[ligne][colonne-1].isDevoilee()==false){
-                    matriceCellules[ligne][colonne-1].revelerCellule();
-                }
-                if (ligne>0 && colonne+1<9 && matriceCellules[ligne][colonne+1].isDevoilee()==false){
-                    matriceCellules[ligne][colonne+1].revelerCellule();
-                }
-                if (ligne+1<9 && colonne-1>0 && matriceCellules[ligne+1][colonne-1].isDevoilee()==false){
-                    matriceCellules[ligne+1][colonne-1].revelerCellule();
-                }  
-                if (ligne+1<9 && colonne<9 && matriceCellules[ligne+1][colonne].isDevoilee()==false){
-                    matriceCellules[ligne+1][colonne].revelerCellule();
-                }
-                if (ligne+1<9 && colonne+1<9 && matriceCellules[ligne+1][colonne+1].isDevoilee()==false){
-                    matriceCellules[ligne+1][colonne+1].revelerCellule();
-                }  
+              for(int i= ligne-1;i<=ligne+1;i++){
+                  for(int j = colonne-1; j<=colonne+1 ; j++){
+                      if (i>=0 && i <nbLignes){
+                          if(j>=0 && j<nbColonnes){
+                              this.revelerCellule(i,j);
+                          }
+                      }
+                  }
+              }
             
             }
       
@@ -140,7 +130,7 @@ public class GrilleDeJeu {
             affichage =  affichage + matriceCellules[x][y].getNbBombesAdjacentes()+" ";
             cpt++;
         } else if (matriceCellules[x][y].isDevoilee()==true && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].getNbBombesAdjacentes()==0) {
-            affichage = affichage + " ";
+            affichage = affichage + "  ";
             cpt++;
         }
         if(cpt == nbColonnes){
