@@ -63,7 +63,7 @@ public class GrilleDeJeu {
                 if(matriceCellules[x][y].getPresenceBombe()==false){
                 for (int a = x-1;a<=x+1;a++){
                     for(int b= y-1;b<=y+1;b++ ){
-                        if (0<=a && x<nbLignes-1 && 0<=b && y<nbColonnes-1){
+                        if (0<=a && a<nbLignes && 0<=b && b<nbColonnes){
                         if (matriceCellules[a][b].getPresenceBombe()== true){
                         NbBombesAdjacentes++;
                     }
@@ -94,11 +94,8 @@ public class GrilleDeJeu {
                       }
                   }
               }
-            
             }
-      
-        }
-               
+        } 
     }
     public boolean getPresenceBombe(int ligne, int colonne){
         return matriceCellules[ligne][colonne].getPresenceBombe();
