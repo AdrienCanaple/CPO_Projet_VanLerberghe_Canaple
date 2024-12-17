@@ -127,18 +127,26 @@ public class GrilleDeJeu {
     @Override
     public String toString() {
         String affichage = "";
+        int cpt = 0;
         for (int x = 0;x<nbLignes;x++){
             for (int y = 0;y<nbColonnes;y++){
         if (matriceCellules[x][y].isDevoilee()==false){
-            affichage = "? ";
+            affichage = affichage + "? ";
+            cpt++;
         } else if (matriceCellules[x][y].getPresenceBombe()==true && matriceCellules[x][y].isDevoilee()==true) {
-            affichage =  "B ";
+            affichage = affichage + "B ";
+            cpt++;
         } else if (matriceCellules[x][y].getNbBombesAdjacentes()>0 && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].isDevoilee()==true){
-            affichage =  matriceCellules[x][y].getNbBombesAdjacentes()+" ";
+            affichage =  affichage + matriceCellules[x][y].getNbBombesAdjacentes()+" ";
+            cpt++;
         } else if (matriceCellules[x][y].isDevoilee()==true && matriceCellules[x][y].getPresenceBombe()==false && matriceCellules[x][y].getNbBombesAdjacentes()==0) {
-            affichage =  " ";
+            affichage = affichage + " ";
+            cpt++;
         }
-        
+        if(cpt == nbColonnes){
+            cpt = 0;
+            affichage = affichage +"\n";
+        }
     }
         }
         return affichage;
