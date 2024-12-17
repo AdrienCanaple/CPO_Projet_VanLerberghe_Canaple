@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -5,6 +6,7 @@
 package projet_vanlerberghe_canaple;
 
 import java.awt.GridLayout;
+import java.util.Scanner;
 import javax.swing.JButton;
 
 /**
@@ -16,14 +18,24 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     /**
      * Creates new form FenetrePrincipale
      */
+    GrilleDeJeu grille;
+    Scanner sc = new Scanner(System.in);
+    
+    public void initialiserPartie(){
+        this.grille = new GrilleDeJeu(9,9,11); 
+        this.grille.placerBombeAleatoirement();
+        this.grille.calculerBombesAdjacentes();
+    }
+    
     public FenetrePrincipale() {
         initComponents();
-        int nbLignes = 10;
-        int nbColonnes = 10;
+        int nbLignes = 9;
+        int nbColonnes = 9;
         PanneauGrille.setLayout(new GridLayout(nbLignes,nbColonnes));
+        this.grille = new GrilleDeJeu(nbLignes,nbColonnes,11);
         for(int i = 0;i<nbLignes;i++){
             for(int j = 0; j<nbColonnes; j++){
-                JButton bouton_cellule = new JButton();
+                CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j],36,36);
                 PanneauGrille.add(bouton_cellule);
             }
         }
