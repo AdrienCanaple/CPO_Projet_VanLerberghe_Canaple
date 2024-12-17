@@ -11,10 +11,11 @@ import java.util.Random;
 
 
 public class GrilleDeJeu {
-    private Cellule matriceCellules [][];
     private int nbLignes;
     private int nbColonnes;
     private int nbBombes;
+    public Cellule [][] matriceCellules = new Cellule [nbLignes][nbColonnes];
+    
     
     public GrilleDeJeu(int nbLignes, int nbColonnes, int nbBombes) {
         this.nbLignes = nbLignes;
@@ -22,8 +23,8 @@ public class GrilleDeJeu {
         this.nbBombes = nbBombes;
         this.matriceCellules = new Cellule [nbLignes][nbColonnes];
         
-        for (int x=0; x<10; x++){
-            for (int y=0; y<10; y++) {
+        for (int x=0; x<nbLignes; x++){
+            for (int y=0; y<nbColonnes; y++) {
                 matriceCellules[x][y]= new Cellule();
             }
         }
@@ -56,12 +57,12 @@ public class GrilleDeJeu {
     
     public void calculerBombesAdjacentes(){
         //modifier pour la taille de la grille
-        for (int x = 0;x<10;x++){
-            for (int y = 0;y<10;y++){
+        for (int x = 0;x<nbLignes;x++){
+            for (int y = 0;y<nbColonnes;y++){
                 int NbBombesAdjacentes = 0;
                 for (int a = -1;a<2;a++){
                     for(int b= -1;b<2;b++ ){
-                        if (0<x && x<9 && 0<y && y<9){
+                        if (0<x && x<nbLignes-1 && 0<y && y<nbColonnes-1){
                         if (matriceCellules[x+a][y+b].getPresenceBombe()== true){
                         NbBombesAdjacentes++;
                     }
@@ -114,21 +115,20 @@ public class GrilleDeJeu {
     }
     public boolean toutesCellulesRevelees(){
         boolean result=true;
-        for (int x = 0;x<10;x++){
-            for (int y = 0;y<10;y++){
-        if (matriceCellules[x][y].isDevoilee() == false){
+        for (int x = 0;x<nbLignes;x++){
+            for (int y = 0;y<nbColonnes;y++){
+        if (matriceCellules[x][y].isDevoilee() == false && matriceCellules[x][y].getPresenceBombe()== false){
             result=false;
         }
             }
         }
-        return result;    
-            
+        return result;              
 }
     @Override
     public String toString() {
         String affichage = "";
-        for (int x = 0;x<10;x++){
-            for (int y = 0;y<10;y++){
+        for (int x = 0;x<nbLignes;x++){
+            for (int y = 0;y<nbColonnes;y++){
         if (matriceCellules[x][y].isDevoilee()==false){
             affichage = "? ";
         } else if (matriceCellules[x][y].getPresenceBombe()==true && matriceCellules[x][y].isDevoilee()==true) {
