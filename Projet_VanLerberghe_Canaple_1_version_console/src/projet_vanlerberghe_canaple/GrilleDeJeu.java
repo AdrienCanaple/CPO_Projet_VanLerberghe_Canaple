@@ -94,11 +94,8 @@ public class GrilleDeJeu {
                       }
                   }
               }
-            
             }
-      
-        }
-               
+        } 
     }
     public boolean getPresenceBombe(int ligne, int colonne){
         return matriceCellules[ligne][colonne].getPresenceBombe();
