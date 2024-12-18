@@ -101,11 +101,13 @@ public class GrilleDeJeu {
         return matriceCellules[ligne][colonne].getPresenceBombe();
     }
     public boolean toutesCellulesRevelees(){
-        boolean result=true;
+        boolean result=false;
         for (int x = 0;x<nbLignes;x++){
             for (int y = 0;y<nbColonnes;y++){
         if (matriceCellules[x][y].isDevoilee() == false && matriceCellules[x][y].getPresenceBombe()== false){
             result=false;
+        } else {
+            result=true;
         }
             }
         }

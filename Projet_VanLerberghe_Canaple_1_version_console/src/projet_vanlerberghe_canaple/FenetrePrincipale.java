@@ -37,6 +37,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             for(int j = 0; j<nbColonnes; j++){
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j],36,36);
                 PanneauGrille.add(bouton_cellule);
+                
             }
         }
     }

@@ -55,7 +55,6 @@ public class Partie {
         this.tourDeJeu(9,9);
         this.initialiserPartie();
         this.verifierVictoire();
-        System.out.println(grille);
         
         while(verifierVictoire() == false){
             System.out.println(grille);
