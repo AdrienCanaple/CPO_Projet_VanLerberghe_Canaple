@@ -24,7 +24,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     
     // méthode pour initiliser une partie avec la création d'une grille
     public void initialiserPartie(){
-        this.grille = new GrilleDeJeu(9,9,3); 
+        this.grille = new GrilleDeJeu(9,9,6); 
         this.grille.placerBombeAleatoirement();
         this.grille.calculerBombesAdjacentes();
     }
@@ -35,7 +35,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     public boolean verifierVictoire (){
         boolean victoire = false;
         if(grille.toutesCellulesRevelees()== true){
-            
             victoire = true;
             return victoire;
         }
@@ -60,6 +59,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             FenetreVictoire f = new FenetreVictoire() ;
             f.setVisible(true) ;
         }
+        FenetreVictoire f = new FenetreVictoire() ;
         
 
         for(int i = 0;i<nbLignes;i++){
@@ -72,7 +72,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                       grille.revelerCellule(i2,j2);
-                      if (verifierVictoire()) System.out.println("victoire");
+                      if (verifierVictoire()==true) System.out.println("victoire");   
+                      if (verifierVictoire()==true) f.setVisible(true)  ;
                       PanneauGrille.repaint();
                  }
             });
