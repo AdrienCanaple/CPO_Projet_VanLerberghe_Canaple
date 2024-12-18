@@ -35,8 +35,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     public boolean verifierVictoire (){
         boolean victoire = false;
         if(grille.toutesCellulesRevelees()== true){
-            FenetreVictoire f = new FenetreVictoire() ;
-            f.setVisible(true) ;
+            
             victoire = true;
             return victoire;
         }
@@ -57,6 +56,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.grille = new GrilleDeJeu(nbLignes,nbColonnes,11);
         this.initialiserPartie();
         this.verifierVictoire();
+        if (this.verifierVictoire()==true){
+            FenetreVictoire f = new FenetreVictoire() ;
+            f.setVisible(true) ;
+        }
         
 
         for(int i = 0;i<nbLignes;i++){
