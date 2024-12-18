@@ -15,7 +15,8 @@ public class Projet_VanLerberghe_Canaple {
      */
     public static void main(String[] args) {
         
-        GrilleDeJeu Grille1 = new GrilleDeJeu(10,10,11);
+        // La Grille1 est initialisé à une taille plus grande que la taille de la grille dans le niveau difficle et est ensuite réduite à la taille adapté avec la méthode démarrer partie 
+        GrilleDeJeu Grille1 = new GrilleDeJeu(20,20,30);
         Partie grille1 = new Partie(Grille1);
         grille1.demarrerPartie();
         

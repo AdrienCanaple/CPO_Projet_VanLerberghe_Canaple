@@ -14,12 +14,14 @@ public class Partie {
     GrilleDeJeu grille;
     Scanner sc = new Scanner(System.in);
     
+   
+    
     public Partie(GrilleDeJeu grille) {
         this.grille = grille;
     }
     
-    public void initialiserPartie(){
-        this.grille = new GrilleDeJeu(9,9,11); 
+    public void initialiserPartie(int nbLignes, int nbColonnes, int nbBombes){
+        this.grille = new GrilleDeJeu(nbLignes,nbColonnes,nbBombes); 
         this.grille.placerBombeAleatoirement();
         this.grille.calculerBombesAdjacentes();
     }
@@ -52,9 +54,31 @@ public class Partie {
         }
     }
     
+    
+    
     public void demarrerPartie (){
-        this.tourDeJeu(9,9);
-        this.initialiserPartie();
+        System.out.println("Choisissez un niveau de difficulté : " + "\n" + " 1) Facile"+ "\n" + " 2) Moyen"+ "\n" + " 3) Difficile");
+        int k = sc.nextInt();
+        int nbLignes=0;
+        int nbColonnes=0;
+        int nbBombes=0;
+        
+        if (k==1) {
+            nbLignes=5;
+            nbColonnes=5;
+            nbBombes=4;
+        } else if (k==2){
+            nbLignes=9;
+            nbColonnes=9;
+            nbBombes=12; 
+        } else if (k==3){
+            nbLignes=13;
+            nbColonnes=13;
+            nbBombes=25;
+        }
+        
+        this.tourDeJeu(nbLignes,nbColonnes);
+        this.initialiserPartie(nbLignes,nbColonnes,nbBombes);
         this.verifierVictoire();
         
         while(verifierVictoire() == false){
