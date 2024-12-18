@@ -44,6 +44,7 @@ public class Partie {
         boolean victoire = false;
         if(grille.toutesCellulesRevelees()== true){
             System.out.println("Victoire");
+            victoire = true;
             return victoire;
         }
         else {
@@ -63,5 +64,6 @@ public class Partie {
             int colonne = sc.nextInt();
             this.tourDeJeu(ligne, colonne);
         }
+        System.out.println("Vous avez gagné");
     }
 }

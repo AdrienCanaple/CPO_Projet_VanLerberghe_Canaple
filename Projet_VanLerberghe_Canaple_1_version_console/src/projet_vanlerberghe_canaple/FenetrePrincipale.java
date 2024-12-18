@@ -21,11 +21,32 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     GrilleDeJeu grille;
     Scanner sc = new Scanner(System.in);
     
+    
+    // méthode pour initiliser une partie avec la création d'une grille
     public void initialiserPartie(){
         this.grille = new GrilleDeJeu(9,9,11); 
         this.grille.placerBombeAleatoirement();
         this.grille.calculerBombesAdjacentes();
     }
+    
+    
+    
+    // méthode qui utilise la methode toutesCellulesRevelees pour voir si le joueur a réussi à dévoiler toutes les cases sans toucher de bombes 
+    public boolean verifierVictoire (){
+        boolean victoire = false;
+        if(grille.toutesCellulesRevelees()== true){
+            FenetreVictoire f = new FenetreVictoire() ;
+            f.setVisible(true) ;
+            victoire = true;
+            return victoire;
+        }
+        else {
+            return victoire;
+        }
+    }
+    
+    
+    
     
     
     public FenetrePrincipale() {
@@ -35,9 +56,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new GridLayout(nbLignes,nbColonnes));
         this.grille = new GrilleDeJeu(nbLignes,nbColonnes,11);
         this.initialiserPartie();
+        this.verifierVictoire();
         
-        
-        
+
         for(int i = 0;i<nbLignes;i++){
             for(int j = 0; j<nbColonnes; j++){
                 final int i2=i;
@@ -52,6 +73,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                  }
             });
         }
+        
+        // partie pour afficher la fenetre défaite dans la cas où lme joueur perd, j affiche une erreur 
+        //if (grille.matriceCellules[i][j].getPresenceBombe()==true && grille.matriceCellules[i][j].isDevoilee()==true) {
+            //FentreDefaite f2 = new FentreDefaite() ;
+            //f2.setVisible (true) ;
+        //}
+        
     }
     }
     /**
