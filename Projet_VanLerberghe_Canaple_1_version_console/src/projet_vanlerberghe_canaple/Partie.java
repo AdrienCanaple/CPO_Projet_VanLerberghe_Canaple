@@ -37,7 +37,6 @@ public class Partie {
             verifierVictoire ();
         }
         else if (grille.toutesCellulesRevelees()== true){
-            System.out.println("Gagné !!!");
             verifierVictoire ();
         }
     }
@@ -45,7 +44,7 @@ public class Partie {
     public boolean verifierVictoire (){
         boolean victoire = false;
         if(grille.toutesCellulesRevelees()== true){
-            System.out.println("Victoire");
+            System.out.println("C'est gagné !");
             victoire = true;
             return victoire;
         }
@@ -75,6 +74,8 @@ public class Partie {
             nbLignes=13;
             nbColonnes=13;
             nbBombes=25;
+        } if (k<=0 || k>3) {
+            System.out.println("Aucune option ne correspond au chiffre que vous avez indiquer. Veuillez recommencer");
         }
         
         this.tourDeJeu(nbLignes,nbColonnes);
@@ -88,6 +89,5 @@ public class Partie {
             int colonne = sc.nextInt();
             this.tourDeJeu(ligne, colonne);
         }
-        System.out.println("Vous avez gagné");
     }
 }
