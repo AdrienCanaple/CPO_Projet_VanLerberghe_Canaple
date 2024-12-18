@@ -24,7 +24,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     
     // méthode pour initiliser une partie avec la création d'une grille
     public void initialiserPartie(){
-        this.grille = new GrilleDeJeu(9,9,11); 
+        this.grille = new GrilleDeJeu(9,9,3); 
         this.grille.placerBombeAleatoirement();
         this.grille.calculerBombesAdjacentes();
     }
@@ -72,12 +72,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                       grille.revelerCellule(i2,j2);
+                      if (verifierVictoire()) System.out.println("victoire");
                       PanneauGrille.repaint();
                  }
             });
         }
         
-        // partie pour afficher la fenetre défaite dans la cas où lme joueur perd, j affiche une erreur 
+        // test pour afficher la fenetre défaite dans la cas où le joueur perd, problème : j affiche une erreur 
         //if (grille.matriceCellules[i][j].getPresenceBombe()==true && grille.matriceCellules[i][j].isDevoilee()==true) {
             //FentreDefaite f2 = new FentreDefaite() ;
             //f2.setVisible (true) ;
