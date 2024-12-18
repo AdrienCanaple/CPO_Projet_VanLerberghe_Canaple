@@ -104,13 +104,12 @@ public class GrilleDeJeu {
         boolean result=false;
         for (int x = 0;x<nbLignes;x++){
             for (int y = 0;y<nbColonnes;y++){
-        if (matriceCellules[x][y].isDevoilee() == false && matriceCellules[x][y].getPresenceBombe()== false){
+        if (matriceCellules[x][y].isDevoilee() == false || matriceCellules[x][y].getPresenceBombe()== false){
             result=false;
-        } else {
-            result=true;
-        }
+        } 
             }
         }
+        
         return result;              
 }
     @Override

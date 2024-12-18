@@ -30,11 +30,11 @@ public class Partie {
         }
         grille.revelerCellule(ligne, colonne);
         grille.toString();
-        if (grille.getPresenceBombe(ligne, colonne)){
+        if (grille.getPresenceBombe(ligne, colonne)==true){
             System.out.println("perdu ...");
             verifierVictoire ();
         }
-        else if (grille.toutesCellulesRevelees()){
+        else if (grille.toutesCellulesRevelees()== true){
             System.out.println("Gagné !!!");
             verifierVictoire ();
         }
