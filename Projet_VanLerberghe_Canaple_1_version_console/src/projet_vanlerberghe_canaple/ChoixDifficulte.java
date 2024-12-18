@@ -17,7 +17,7 @@ public class ChoixDifficulte extends javax.swing.JFrame {
      */
     public ChoixDifficulte() {
         initComponents();
-        FenetrePrincipale p = new FenetrePrincipale() ;
+        
         
        
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -25,6 +25,7 @@ public class ChoixDifficulte extends javax.swing.JFrame {
                     nbLignes=5;
                     nbColonnes=5;
                     nbBombes=4;  
+                    FenetrePrincipale p = new FenetrePrincipale(nbLignes, nbColonnes, nbBombes) ;
                     p.setVisible(true);
                     dispose();
                  }
@@ -34,6 +35,7 @@ public class ChoixDifficulte extends javax.swing.JFrame {
                     nbLignes=9;
                     nbColonnes=9;
                     nbBombes=12;
+                    FenetrePrincipale p = new FenetrePrincipale(nbLignes, nbColonnes, nbBombes) ;
                     p.setVisible(true) ;
                     dispose();
                  }
@@ -43,6 +45,7 @@ public class ChoixDifficulte extends javax.swing.JFrame {
                     nbLignes=13;
                     nbColonnes=13;
                     nbBombes=25;
+                    FenetrePrincipale p = new FenetrePrincipale(nbLignes, nbColonnes, nbBombes) ;
                     p.setVisible(true) ;
                     dispose();
                  }
@@ -63,50 +66,70 @@ public class ChoixDifficulte extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel1.setText("Bonjour et bienvenue au démineur !");
 
         jLabel2.setText("Veuillez choisir un niveau de difficulté : ");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Facile");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Moyen");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Difficile");
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel3.setText("💣");
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel4.setText("💣");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(96, 96, 96))
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jButton1)
+                            .addGap(40, 40, 40)
+                            .addComponent(jButton2)
+                            .addGap(40, 40, 40)
+                            .addComponent(jButton3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(84, 84, 84)
+                            .addComponent(jLabel2))))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,5 +176,7 @@ public class ChoixDifficulte extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

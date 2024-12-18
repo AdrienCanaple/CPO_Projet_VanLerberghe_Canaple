@@ -20,9 +20,7 @@ public class FenetrePrincipale extends javax.swing.JFrame{
      */
     GrilleDeJeu grille;
     Scanner sc = new Scanner(System.in);
-    int nbLignes=9;
-    int nbColonnes=9;
-    int nbBombes=4;
+    
     
     
     // méthode pour initiliser une partie avec la création d'une grille
@@ -50,7 +48,7 @@ public class FenetrePrincipale extends javax.swing.JFrame{
     
     
     
-    public FenetrePrincipale() {
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbBombes) {
         initComponents();
 
         PanneauGrille.setLayout(new GridLayout(nbLignes,nbColonnes));
@@ -102,21 +100,21 @@ public class FenetrePrincipale extends javax.swing.JFrame{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanneauGrille.setBackground(new java.awt.Color(0, 242, 242));
+        PanneauGrille.setBackground(new java.awt.Color(204, 204, 204));
         PanneauGrille.setPreferredSize(new java.awt.Dimension(400, 400));
 
         javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
         PanneauGrille.setLayout(PanneauGrilleLayout);
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
 
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 450));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,7 +149,8 @@ public class FenetrePrincipale extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale().setVisible(true);
+                FenetrePrincipale p = new FenetrePrincipale (20, 20, 30);
+                p.setVisible(true);
             }
         });
     }

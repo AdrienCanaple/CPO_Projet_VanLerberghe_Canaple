@@ -18,8 +18,8 @@ public class FenetreVictoire extends javax.swing.JFrame {
         
         jButton3.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            FenetrePrincipale p = new FenetrePrincipale() ;
-            p.setVisible(true) ;
+            ChoixDifficulte c = new ChoixDifficulte() ;
+            c.setVisible(true) ;
             dispose();
                  }
             });

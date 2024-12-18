@@ -17,8 +17,8 @@ public class FentreDefaite extends javax.swing.JFrame {
         initComponents();
         jButton1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            FenetrePrincipale p = new FenetrePrincipale() ;
-            p.setVisible(true) ;
+            ChoixDifficulte c = new ChoixDifficulte() ;
+            c.setVisible(true) ;
             dispose();
                  }
             });
