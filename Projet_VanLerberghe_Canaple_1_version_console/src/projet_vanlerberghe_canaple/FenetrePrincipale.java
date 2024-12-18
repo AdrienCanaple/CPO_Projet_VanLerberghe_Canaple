@@ -55,11 +55,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.grille = new GrilleDeJeu(nbLignes,nbColonnes,11);
         this.initialiserPartie();
         this.verifierVictoire();
-        if (this.verifierVictoire()==true){
-            FenetreVictoire f = new FenetreVictoire() ;
-            f.setVisible(true) ;
-        }
-        FenetreVictoire f = new FenetreVictoire() ;
+        
+        FenetreVictoire f = new FenetreVictoire();
+        FentreDefaite f2 = new FentreDefaite();
         
 
         for(int i = 0;i<nbLignes;i++){
@@ -73,17 +71,18 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                       grille.revelerCellule(i2,j2);
                       if (verifierVictoire()==true) System.out.println("victoire");   
-                      if (verifierVictoire()==true) f.setVisible(true)  ;
+                      if (verifierVictoire()==true) f.setVisible(true);
+                      if (verifierVictoire()==true) dispose();
+                      if (grille.matriceCellules[i2][j2].getPresenceBombe() == true) f2.setVisible(true);
+                      if (grille.matriceCellules[i2][j2].getPresenceBombe() == true) dispose();
                       PanneauGrille.repaint();
                  }
             });
         }
         
-        // test pour afficher la fenetre défaite dans la cas où le joueur perd, problème : j affiche une erreur 
-        //if (grille.matriceCellules[i][j].getPresenceBombe()==true && grille.matriceCellules[i][j].isDevoilee()==true) {
-            //FentreDefaite f2 = new FentreDefaite() ;
-            //f2.setVisible (true) ;
-        //}
+            
+        
+        
         
     }
     }

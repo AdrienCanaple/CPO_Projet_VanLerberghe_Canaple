@@ -45,8 +45,8 @@ public class GrilleDeJeu {
         int compteur = 0;
         while (compteur < nbBombes) {//adapter nombre bombes
             Random generateurAleat = new Random();
-            int x = generateurAleat.nextInt(9);
-            int y = generateurAleat.nextInt(9);
+            int x = generateurAleat.nextInt(nbLignes);
+            int y = generateurAleat.nextInt(nbColonnes);
             if (matriceCellules[x][y].getPresenceBombe() == false) {
                 matriceCellules[x][y].placerBombe();
                 compteur++;

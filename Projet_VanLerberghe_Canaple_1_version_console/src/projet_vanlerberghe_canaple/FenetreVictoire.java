@@ -20,6 +20,7 @@ public class FenetreVictoire extends javax.swing.JFrame {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             FenetrePrincipale p = new FenetrePrincipale() ;
             p.setVisible(true) ;
+            dispose();
                  }
             });
     }
