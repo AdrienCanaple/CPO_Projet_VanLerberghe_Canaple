@@ -114,8 +114,15 @@ public class GrilleDeJeu {
         return true;
     }
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    
     @Override
     public String toString() {
+        String bombes = " ";
         String affichage = "";
         int cpt = 0;
         for (int x = 0; x < nbLignes; x++) {
@@ -127,7 +134,18 @@ public class GrilleDeJeu {
                     affichage = affichage + "B ";
                     cpt++;
                 } else if (matriceCellules[x][y].getNbBombesAdjacentes() > 0 && matriceCellules[x][y].getPresenceBombe() == false && matriceCellules[x][y].isDevoilee() == true) {
-                    affichage = affichage + matriceCellules[x][y].getNbBombesAdjacentes() + " ";
+                    bombes = matriceCellules[x][y].getNbBombesAdjacentes()+" ";
+                    if (matriceCellules[x][y].getNbBombesAdjacentes()==1) {
+                        bombes = ANSI_BLUE + bombes + ANSI_RESET;
+                    } else if (matriceCellules[x][y].getNbBombesAdjacentes()==2) {
+                        bombes = ANSI_GREEN + bombes + ANSI_RESET;
+                    } else if (matriceCellules[x][y].getNbBombesAdjacentes()==3) {
+                        bombes = ANSI_RED + bombes + ANSI_RESET;
+                    } else if (matriceCellules[x][y].getNbBombesAdjacentes()==4) {
+                        bombes = ANSI_YELLOW + bombes + ANSI_RESET;
+                    } 
+         
+                    affichage = affichage + bombes;
                     cpt++;
                 } else if (matriceCellules[x][y].isDevoilee() == true && matriceCellules[x][y].getPresenceBombe() == false && matriceCellules[x][y].getNbBombesAdjacentes() == 0) {
                     affichage = affichage + "  ";

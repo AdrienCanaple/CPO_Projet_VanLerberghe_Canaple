@@ -78,7 +78,7 @@ public class Partie {
         }
         
         this.tourDeJeu(nbLignes,nbColonnes);
-        this.initialiserPartie(nbLignes,nbColonnes,nbBombes);
+        this.initialiserPartie(nbLignes, nbColonnes, nbBombes);
         this.verifierVictoire();
         
         while(verifierVictoire() == false){

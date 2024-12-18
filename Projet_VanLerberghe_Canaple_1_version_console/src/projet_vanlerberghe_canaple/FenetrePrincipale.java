@@ -13,18 +13,21 @@ import javax.swing.JButton;
  *
  * @author adrie
  */
-public class FenetrePrincipale extends javax.swing.JFrame {
+public class FenetrePrincipale extends javax.swing.JFrame{
 
     /**
      * Creates new form FenetrePrincipale
      */
     GrilleDeJeu grille;
     Scanner sc = new Scanner(System.in);
+    int nbLignes=9;
+    int nbColonnes=9;
+    int nbBombes=4;
     
     
     // méthode pour initiliser une partie avec la création d'une grille
-    public void initialiserPartie(){
-        this.grille = new GrilleDeJeu(9,9,6); 
+    public void initialiserPartie(int nbLignes, int nbColonnes, int nbBombes){
+        this.grille = new GrilleDeJeu(nbLignes,nbColonnes,nbBombes); 
         this.grille.placerBombeAleatoirement();
         this.grille.calculerBombesAdjacentes();
     }
@@ -49,12 +52,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     
     public FenetrePrincipale() {
         initComponents();
-        int nbLignes = 9;
-        int nbColonnes = 9;
+
         PanneauGrille.setLayout(new GridLayout(nbLignes,nbColonnes));
-        this.grille = new GrilleDeJeu(nbLignes,nbColonnes,11);
-        this.initialiserPartie();
-        this.verifierVictoire();
+        this.grille = new GrilleDeJeu(nbLignes,nbColonnes,nbBombes);
+        this.initialiserPartie(nbLignes,nbColonnes,nbBombes);
+        
         
         FenetreVictoire f = new FenetreVictoire();
         FentreDefaite f2 = new FentreDefaite();
@@ -107,14 +109,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(PanneauGrilleLayout);
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
